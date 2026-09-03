@@ -1,5 +1,5 @@
 from app.schemas.planSchema import PlanRequest, PlanResponse
-from app.services.planService import PlanService
+from backend.app.services.planServiceMock import PlanService
 
 class PlanController:
     def __init__(self,planService: PlanService):

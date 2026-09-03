@@ -4,13 +4,13 @@ from typing import Optional, List
 
 @dataclass
 class Room:
-    room_id:int
-    name:str
-    room_type:str
-    x:float
-    y:float
-    width:float
-    height:float
+    room_id: Optional[int] = None
+    name:str = ""
+    room_type:str = ""
+    x:float = 0
+    y:float = 0
+    width:float = 0
+    height:float = 0
     min_area: Optional[float]=None
 
     @property
@@ -19,24 +19,24 @@ class Room:
 
 @dataclass
 class FloorBoundary:
-    floorBoundary_id:int
-    width:float
-    height:float
+    floorBoundary_id: Optional[int] = None
+    width:float = 0
+    height:float = 0
 
 @dataclass
 class FloorPlan:
-    floor_id:int
-    floor: int
-    boundary: FloorBoundary
+    floor_id: Optional[int] = None
+    floor: int = 0
+    boundary: FloorBoundary = None
     rooms: list[Room] = field(default_factory=list)
     svg: str = ""
 
 @dataclass
 class HousePlan:
-    plan_id: int
-    total_area: float
-    status: str
-    floors: int
+    plan_id: Optional[int] = None
+    total_area: float = 0
+    status: str = ""
+    floors: int = 0
     floor_plan: List[FloorPlan] = field(default_factory=list)
 
     def get_rooms_by_floor(self, floor:int) -> List[Room]:

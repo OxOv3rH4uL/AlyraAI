@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from app.schemas.planSchema import PlanRequest, PlanResponse
-from app.services.planService import PlanService
+from backend.app.services.planServiceMock import PlanService
 from app.controllers.planController import PlanController
 from app.services.layoutValidator import LayoutValidator
 from app.services.layoutService import LayoutService
