@@ -13,6 +13,9 @@ class PlanService:
 
 
     def generate_plan(self, request: PlanRequest) -> PlanResponse:
+        """
+        MockAPI bro yenake confuse aagiruchu
+        """
 
         plan = HousePlan(
             plan_id="001",

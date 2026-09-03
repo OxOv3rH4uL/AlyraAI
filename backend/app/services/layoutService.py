@@ -5,7 +5,7 @@ class LayoutService:
 
     def generate_layout(self,plan:HousePlan, req: PlanRequest) -> HousePlan:
         """
-        AI should generate the Layout
+        MockAPI for generating the layout
         """
 
         if plan.floors >= 1:
