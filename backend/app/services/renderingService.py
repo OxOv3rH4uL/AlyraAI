@@ -1,75 +1,69 @@
-from app.models.housePlan import FloorPlan
-
+from app.models.housePlan import HousePlan
 
 class RenderingService:
-    #AI is used for this god who knows how svg internally works already this project is too complex
-    SCALE = 20
-    PADDING = 40
 
-    def render_floor_svg(self, floor_plan: FloorPlan) -> str:
+    def render_svg(self,plan:HousePlan) -> str:
+        """
+        Converting House Plans to SVG Floor Plan
+        """
+        scale = 60
+        padding = 25
 
-        boundary = floor_plan.boundary
+        if not plan.rooms:
+            return "<svg xmlns='http://www.w3.org/2000/svg'></svg>"
 
-        svg_width = (
-            boundary.width * self.SCALE
-            + self.PADDING * 2
-        )
+        #Finding the Max Height and Width and some calculation, it should be the resolution/dimensions of the image
+        max_x = 0
+        for room in plan.rooms:
+            max_x = max(max_x,room.x+room.width)
 
-        svg_height = (
-            boundary.height * self.SCALE
-            + self.PADDING * 2
-        )
+        max_y = 0
+        for room in plan.rooms:
+            max_y = max(max_y,room.y+room.height)
+
+        width = max_x * scale + padding * 2
+        height = max_y * scale + padding * 2
 
         svg = [
-            f'<svg xmlns="http://www.w3.org/2000/svg" '
-            f'width="{svg_width}" '
-            f'height="{svg_height}" '
-            f'viewBox="0 0 {svg_width} {svg_height}">'
+            f"<svg xmlns='http://www.w3.org/2000/svg' "
+            f"width='{width}' height='{height}' "
+            f"viewBox='0 0 {width} {height}'>"
         ]
 
-        
-        svg.append(
-            f'<rect '
-            f'x="{self.PADDING}" '
-            f'y="{self.PADDING}" '
-            f'width="{boundary.width * self.SCALE}" '
-            f'height="{boundary.height * self.SCALE}" '
-            f'fill="none" '
-            f'stroke="black"/>'
-        )
+        svg.append(f"<rect width='100%' height='100%' fill='white'/>")
 
-        
-        for room in floor_plan.rooms:
-
-            x = room.x * self.SCALE + self.PADDING
-            y = room.y * self.SCALE + self.PADDING
-
-            width = room.width * self.SCALE
-            height = room.height * self.SCALE
+        for room in plan.rooms:
+            x = room.x * scale + padding
+            y = room.y * scale + padding
+            room_width = room.width * scale
+            room_height = room.height * scale 
 
             svg.append(
-                f'<rect '
-                f'x="{x}" '
-                f'y="{y}" '
-                f'width="{width}" '
-                f'height="{height}" '
-                f'fill="none" '
-                f'stroke="black"/>'
+                f"<rect "
+                f"x='{x}' "
+                f"y='{y}' "
+                f"width='{room_width}' "
+                f"height='{room_height}' "
+                f"fill='white' "
+                f"stroke='black' "
+                f"stroke-width='2'/>"
             )
 
-            text_x = x + width / 2
-            text_y = y + height / 2
+            text_x = x + room_width / 2
+            text_y = y + room_height / 2
 
             svg.append(
-                f'<text '
-                f'x="{text_x}" '
-                f'y="{text_y}" '
-                f'text-anchor="middle" '
-                f'dominant-baseline="middle">'
-                f'{room.name}'
-                f'</text>'
+                f"<text "
+                f"x='{text_x}' "
+                f"y='{text_y}' "
+                f"text-anchor='middle' "
+                f"dominant-baseline='middle' "
+                f"font-size='14'>"
+                f"{room.name}"
+                f"</text>"
             )
 
-        svg.append('</svg>')
+        svg.append("</svg>")
 
-        return ''.join(svg)
+        return "".join(svg)
+      
