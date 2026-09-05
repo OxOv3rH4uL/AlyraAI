@@ -1,1 +1,4 @@
 .venv
+.env
+cleansed_data
+example_data
