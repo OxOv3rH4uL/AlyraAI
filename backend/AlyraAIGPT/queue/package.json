@@ -1,0 +1,16 @@
+{
+  "name": "datasetgenerator",
+  "version": "1.0.0",
+  "description": "Pushes json file to redis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SIN_GREED",
+  "license": "ISC",
+  "dependencies": {
+    "bullmq": "^6.3.4",
+    "dotenv": "^17.4.2",
+    "ioredis": "^6.0.0"
+  }
+}
