@@ -88,7 +88,6 @@ def build_prompt(requirements):
     room_list = "\n".join(rooms)
     
     opener = random.choice(OPENERS)
-    # floor_phrase = random.choice(FLOOR_PHRASES.get(floors, [f"{floors}-story"]))
     room_list = ", ".join(rooms)
     filled = opener.format(rooms=room_list)
 
