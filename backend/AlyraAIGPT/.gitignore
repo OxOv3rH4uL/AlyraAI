@@ -3,6 +3,8 @@
 cleansed_data
 example_data
 normalized_dataset
+ai_dataset
 node_modules/
 normalized_dataset.zip
 __pycache__
+final_dataset

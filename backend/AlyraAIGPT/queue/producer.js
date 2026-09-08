@@ -19,7 +19,7 @@ function sleep(ms) {
 async function main(){
 
 
-    const folderPath = "C:\\Users\\91994\\OneDrive\\Desktop\\AlyraAI\\backend\\AlyraAIGPT\\normalized_data"
+    const folderPath = "C:\\Users\\91994\\OneDrive\\Desktop\\AlyraAI\\backend\\AlyraAIGPT\\normalized_dataset"
     
     const files = await fs.readdir(folderPath)
 
@@ -37,7 +37,7 @@ async function main(){
     
         console.log("Job addedd successfully!");
         console.log(job.id);
-        await sleep(2000);
+        await sleep(2500);
     }
 
     await housePlanQueue.close();
