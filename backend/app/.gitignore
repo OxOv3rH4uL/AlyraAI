@@ -1,4 +1,4 @@
 .venv
 .env
 AlyraAIGPT/*_txt
-
+__pycache__

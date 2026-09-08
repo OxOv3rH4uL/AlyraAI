@@ -113,54 +113,7 @@ def build_svg(house_plan: dict, floor_index: int = 0) -> str:
 
 
 # Built-in sample data (matches the example house_plan used in this conversation)
-SAMPLE_HOUSE_PLAN = {
-  "total_area": 107.245,
-  "status": "normalized",
-  "floors": 1,
-  "floor_plan": [
-    {
-      "floor": 1,
-      "boundary": {
-        "width": 13.9,
-        "height": 7.75
-      },
-      "rooms": [
-        {
-          "name": "Bedroom",
-          "room_type": "Bedroom",
-          "x": 0,
-          "y": 0,
-          "width": 5.86,
-          "height": 5.22
-        },
-        {
-          "name": "Kitchen",
-          "room_type": "Kitchen",
-          "x": 5.13,
-          "y": 0,
-          "width": 5.19,
-          "height": 5.22
-        },
-        {
-          "name": "Living_Room",
-          "room_type": "Living_Room",
-          "x": 5.13,
-          "y": 0,
-          "width": 5.19,
-          "height": 5.22
-        },
-        {
-          "name": "Toilet",
-          "room_type": "Toilet",
-          "x": 10.23,
-          "y": 0,
-          "width": 3.67,
-          "height": 2.69
-        }
-      ]
-    }
-  ]
-}
+SAMPLE_HOUSE_PLAN = {"total_area":102.348,"status":"normalized","floors":1,"floor_plan":[{"floor":1,"boundary":{"width":10.2,"height":10.04},"rooms":[{"name":"Bathroom","room_type":"Bathroom","x":0,"y":5.1,"width":5.19,"height":4.94},{"name":"Kitchen","room_type":"Kitchen","x":5.07,"y":0,"width":5.13,"height":5.22},{"name":"Bedroom","room_type":"Bedroom","x":0,"y":0,"width":5.19,"height":5.22}]}]}
 
 
 def main():
