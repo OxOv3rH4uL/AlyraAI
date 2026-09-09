@@ -1,7 +1,7 @@
 # from app.models.housePlan import HousePlan
 # from app.schemas.planSchema import PlanResponse
 from app.schemas.testSchema import HousePlan,Room
-# from app.models.housePlan import HousePlan
+# from app. import HousePlan
 
 import json
 import sys
@@ -34,6 +34,7 @@ class RenderingService:
         MARGIN_RIGHT = 60
         MARGIN_BOTTOM = 60
         LEGEND_ROW_HEIGHT = 24
+        house_plan = HousePlan.model_validate(house_plan)
         floor = house_plan.floor_plan[floor_index]
         boundary = floor.boundary
         rooms = floor.rooms
@@ -119,9 +120,13 @@ class RenderingService:
               
 
 
-renderer = RenderingService()
+# renderer = RenderingService()
 
-res = {"total_area":102.348,"status":"normalized","floors":1,"floor_plan":[{"floor":1,"boundary":{"width":10.2,"height":10.04},"rooms":[{"name":"Bathroom","room_type":"Bathroom","x":0,"y":5.1,"width":5.19,"height":4.94},{"name":"Kitchen","room_type":"Kitchen","x":5.07,"y":0,"width":5.13,"height":5.22},{"name":"Bedroom","room_type":"Bedroom","x":0,"y":0,"width":5.19,"height":5.22}]}]}
-plan= HousePlan.model_validate(res)
+# res = {"total_area":102.348,"status":"normalized","floors":1,"floor_plan":[{"floor":1,"boundary":{"width":10.2,"height":10.04},"rooms":[{"name":"Bathroom","room_type":"Bathroom","x":0,"y":5.1,"width":5.19,"height":4.94},{"name":"Kitchen","room_type":"Kitchen","x":5.07,"y":0,"width":5.13,"height":5.22},{"name":"Bedroom","room_type":"Bedroom","x":0,"y":0,"width":5.19,"height":5.22}]}]}
+# plan= HousePlan.model_validate(res)
+# print(plan)
 
-print(renderer.render_svg(plan))
+# res = {"total_area":107.248,"status":"normalized","floors":1,"floor_plan":[{"floor":1,"boundary":{"width":10.36,"height":10.3},"rooms":[{"name":"Toilet","room_type":"Toilet","x":5.13,"y":0,"width":5.23,"height":5.22},{"name":"Kitchen","room_type":"Kitchen","x":0,"y":0,"width":5.22,"height":5.22},{"name":"Bedroom","room_type":"Bedroom","x":0,"y":5.13,"width":5.22,"height":5.17},{"name":"Living_Room","room_type":"Living_Room","x":5.13,"y":5.13,"width":5.23,"height":5.17}]}]}
+
+
+# print(renderer.render_svg(plan))

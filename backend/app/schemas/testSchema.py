@@ -9,33 +9,18 @@ class Room(BaseModel):
     height: float
 
 class FloorBoundary(BaseModel):
-    width: float = Field(
-        ...,
-        gt=0
-    )
-    height: float = Field(
-        ...,
-        gt=0
-    )
+    width: float 
+    height: float
 
 
 class FloorPlan(BaseModel):
-    floor:int = Field(
-        ...,
-        ge=1
-    )
+    floor:int
     boundary: FloorBoundary
     rooms: list[Room]
 
 class HousePlan(BaseModel):
-    total_area: float = Field(
-        ...,
-        ge=1
-    )
+    total_area: float
     status: str
-    floors:int = Field(
-        ...,
-        ge=1
-    )
+    floors:int
     floor_plan : list[FloorPlan]
     

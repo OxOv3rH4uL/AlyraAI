@@ -7,33 +7,6 @@ class PlanRequest(BaseModel):
         description = "Description of the housing idea"
     )
 
-    area_sqft : int  = Field(
-        ...,
-        gt=0,
-        description = "Housing Area"
-    )
-    floors : int = Field(
-        ...,
-        gt=0,
-        le=5,
-        description = "Floors"
-    )
-    bedrooms : int = Field(
-        ...,
-        gt=0,
-        le=15,
-        description="No of bedrooms"
-    )
-    bathrooms : int = Field(
-        ...,
-        gt = 0,
-        le=10,
-        description="No of bathrooms"
-    )
-    style: str = Field(
-        default="modern",
-        description="Architecture Style"
-    )
 
 
 class Room(BaseModel):
@@ -46,13 +19,12 @@ class Room(BaseModel):
 class FloorPlan(BaseModel):
     floor:int
     rooms: list[Room]
-    svg:str
 
 
 class PlanResponse(BaseModel):
-    plan_id: str
     total_area: float
     status: str
     floors:int
-    floor_plans : list[FloorPlan]
+    floor_plan: list[FloorPlan]
+    svg:str
     

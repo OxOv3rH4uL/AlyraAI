@@ -2,3 +2,5 @@
 .env
 cleansed_data
 example_data
+normalized_data
+AlyraAIGPT/*_results.txt

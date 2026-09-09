@@ -113,8 +113,7 @@ def build_svg(house_plan: dict, floor_index: int = 0) -> str:
 
 
 # Built-in sample data (matches the example house_plan used in this conversation)
-SAMPLE_HOUSE_PLAN = {"total_area":102.348,"status":"normalized","floors":1,"floor_plan":[{"floor":1,"boundary":{"width":10.2,"height":10.04},"rooms":[{"name":"Bathroom","room_type":"Bathroom","x":0,"y":5.1,"width":5.19,"height":4.94},{"name":"Kitchen","room_type":"Kitchen","x":5.07,"y":0,"width":5.13,"height":5.22},{"name":"Bedroom","room_type":"Bedroom","x":0,"y":0,"width":5.19,"height":5.22}]}]}
-
+SAMPLE_HOUSE_PLAN = {"total_area":102.345,"status":"normalized","floors":1,"floor_plan":[{"floor":1,"boundary":{"width":10.89,"height":9.4},"rooms":[{"name":"Bathroom","room_type":"Bathroom","x":7.69,"y":0.01,"width":3.2,"height":3.2},{"name":"Kitchen","room_type":"Kitchen","x":0,"y":0,"width":3.22,"height":3.22},{"name":"Living_Room","room_type":"Living_Room","x":0,"y":3.11,"width":5.22,"height":6.29},{"name":"Bedroom","room_type":"Bedroom","x":5.13,"y":3.11,"width":5.76,"height":6.29}]}]}
 
 def main():
     if len(sys.argv) >= 2:
