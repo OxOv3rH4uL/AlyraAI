@@ -95,7 +95,7 @@ def generate(request: GenerateRequest):
         print(response)
         plan = HousePlan.model_validate_json(response)
         validation_errors = validator.validate(plan)
-
+        print(validation_errors)
         if len(validation_errors) == 0:
             print("HousePlan is valid!")
             return {

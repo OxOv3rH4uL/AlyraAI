@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 489.2 495.3" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="489.2" height="495.3" fill="#FFFFFF"/>
+<text x="244.6" y="34" font-size="22" font-weight="700" text-anchor="middle" fill="#2C3E50">One-Story House Plan</text>
+<text x="244.6" y="56" font-size="13" text-anchor="middle" fill="#7B7D7D">Total area: 102.34 m²  |  Outer boundary: 10.86 m × 9.45 m</text>
+<rect x="60.0" y="90.0" width="369.2" height="321.3" fill="none" stroke="#1B2631" stroke-width="4"/>
+<rect x="60.0" y="90.0" width="177.5" height="177.5" fill="#AED6F1" stroke="#1B2631" stroke-width="2"/>
+<text x="148.7" y="183.1" font-size="13" font-weight="600" text-anchor="middle" fill="#1B2631">Bedroom</text>
+<rect x="233.4" y="90.0" width="195.8" height="177.5" fill="#A9DFBF" stroke="#1B2631" stroke-width="2"/>
+<text x="331.3" y="183.1" font-size="13" font-weight="600" text-anchor="middle" fill="#1B2631">Living Room</text>
+<rect x="60.0" y="264.4" width="177.5" height="146.9" fill="#F5B7B1" stroke="#1B2631" stroke-width="2"/>
+<text x="148.7" y="342.2" font-size="13" font-weight="600" text-anchor="middle" fill="#1B2631">Kitchen</text>
+<rect x="233.4" y="264.4" width="195.8" height="146.9" fill="#EAECEE" stroke="#1B2631" stroke-width="2"/>
+<text x="331.3" y="342.2" font-size="13" font-weight="600" text-anchor="middle" fill="#1B2631">Child Room</text>
+<rect x="233.4" y="264.4" width="91.5" height="91.5" fill="#F9E79F" stroke="#1B2631" stroke-width="2"/>
+<text x="279.1" y="313.8" font-size="11" font-weight="600" text-anchor="middle" fill="#1B2631">Toilet</text>
+<rect x="60.0" y="455.3" width="14" height="14" fill="#AED6F1" stroke="#1B2631" stroke-width="1"/>
+<text x="78.0" y="466.3" font-size="11" fill="#2C3E50">Bedroom</text>
+<rect x="143.5" y="455.3" width="14" height="14" fill="#A9DFBF" stroke="#1B2631" stroke-width="1"/>
+<text x="161.5" y="466.3" font-size="11" fill="#2C3E50">Living Room</text>
+<rect x="253.0" y="455.3" width="14" height="14" fill="#F5B7B1" stroke="#1B2631" stroke-width="1"/>
+<text x="271.0" y="466.3" font-size="11" fill="#2C3E50">Kitchen</text>
+<rect x="336.5" y="455.3" width="14" height="14" fill="#EAECEE" stroke="#1B2631" stroke-width="1"/>
+<text x="354.5" y="466.3" font-size="11" fill="#2C3E50">Child Room</text>
+<rect x="439.5" y="455.3" width="14" height="14" fill="#F9E79F" stroke="#1B2631" stroke-width="1"/>
+<text x="457.5" y="466.3" font-size="11" fill="#2C3E50">Toilet</text>
+</svg>

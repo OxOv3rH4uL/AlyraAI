@@ -1,11 +1,7 @@
 from pydantic import BaseModel, Field
 
 class PlanRequest(BaseModel):
-    description: str = Field(
-        ...,
-        min_length = 5,
-        description = "Description of the housing idea"
-    )
+    description: str 
 
 
 

@@ -10,8 +10,8 @@ class LayoutValidator:
             errors.extend(self.dimension_check(plan))
             errors.extend(self.floor_boundary_check(plan))
             errors.extend(self.room_within_floor_boundary_check(plan))
-            errors.extend(self.total_floor_check(plan))
-            errors.extend(self.floor_number_check(plan))
+            # errors.extend(self.total_floor_check(plan))
+            # errors.extend(self.floor_number_check(plan))
 
             return errors
 

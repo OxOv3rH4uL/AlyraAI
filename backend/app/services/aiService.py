@@ -11,12 +11,15 @@ class AIService:
         """
         Main model generating the plan according to the user request
         """
+        # print(req)
         desc = req.description
+        # print(desc)
         res = requests.post("http://localhost:8001/generate",
                             json={
                                 "request":desc
                             })
         data = res.json()
+        # print(data)
         hp = data["house_plan"]
         if isinstance(hp, str):
             hp = json.loads(hp)

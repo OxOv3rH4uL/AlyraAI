@@ -1,23 +1,29 @@
 from fastapi import FastAPI
 from app.schemas.planSchema import PlanRequest, PlanResponse
-# from app.services.planService import PlanService
-# from app.controllers.planController import PlanController
-# from app.services.layoutValidator import LayoutValidator
-# from app.services.layoutService import LayoutService
 from app.services.renderingService import RenderingService
 from app.services.aiService import AIService
 from app.controllers.aiController import AIController
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
     title="Alyra House Planner Backend API",
     description="Converting Housing Ideas to Housing Plans",
     version="0.1"
 )
-# layoutValidator = LayoutValidator()
-# layoutService = LayoutService()
-# renderer = RenderingService()
-# planService = PlanService(layoutService=layoutService,validator=layoutValidator,renderer=renderer)
-# planController = PlanController(planService=planService)
+
+
+origins =[
+    "http://localhost:3000"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
 
 renderer = RenderingService()
 planService = AIService(renderer)
@@ -37,7 +43,9 @@ def health():
     }
 
 
-@app.post("/api/v1/plans/generate", response_model=PlanResponse)
+@app.post("/api/v1/plans/generate")
 def generate_plan(req: PlanRequest):
+    
+    # return req;
     return planController.generate_plan(req)
 

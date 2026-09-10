@@ -12,7 +12,7 @@ MAX_SEQ_LENGTH = 512
 
 app = FastAPI()
 
-# My gpu is 4gb vram so we need 4bit quantization
+# # My gpu is 4gb vram so we need 4bit quantization
 quantization = BitsAndBytesConfig(
     load_in_4bit=True,
     bnb_4bit_quant_type="nf4",
@@ -78,7 +78,7 @@ def generate_text(model, tokenizer, prompt):
 
 
 class HousePlanRequest(BaseModel):
-    house_plan: dict
+    house_plan: str
 
 def generate_request(house_plan):
     max_retry = 3
@@ -95,8 +95,12 @@ def generate_request(house_plan):
 
 @app.post("/generate")
 def generate(request: HousePlanRequest):
-    
+    # print(request)
+    # print(type(request))
+    # return request
     # req = json.loads(request)
+    # print(request.house_plan)
+
     result = generate_request(request.house_plan)
     result = result.strip()
     if result.startswith('"') and result.endswith('"'):
