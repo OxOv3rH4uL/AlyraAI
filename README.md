@@ -3,8 +3,6 @@
 > **Generates structured house floor plans from natural-language requirements using a fine-tuned LLM.**
 
 AlyraAI is an end-to-end AI-powered house plan generation system that converts natural-language housing requirements into **structured, coordinate-based floor plans**.
-
-Instead of generating a simple image, AlyraAI generates a machine-readable `HousePlan` containing rooms, dimensions, coordinates, floor boundaries, and room types. The generated plan is validated geometrically and then rendered into an SVG floor plan.
 ---
 
 ## Demo
@@ -21,15 +19,15 @@ The fine-tuned model generates a structured `HousePlan`:
 
 ```json
 {
-  "total_area": 102.34,
+  "total_area": 102.354,
   "status": "normalized",
   "floors": 1,
   "floor_plan": [
     {
       "floor": 1,
       "boundary": {
-        "width": 10.86,
-        "height": 9.45
+        "width": 10.2,
+        "height": 10.07
       },
       "rooms": [
         {
@@ -37,20 +35,36 @@ The fine-tuned model generates a structured `HousePlan`:
           "room_type": "Bedroom",
           "x": 0,
           "y": 0,
-          "width": 5.22,
-          "height": 5.22
+          "width": 5.19,
+          "height": 5.19
         },
         {
           "name": "Living_Room",
           "room_type": "Living_Room",
-          "x": 5.1,
+          "x": 5.08,
           "y": 0,
-          "width": 5.76,
-          "height": 5.22
+          "width": 5.12,
+          "height": 5.19
+        },
+        {
+          "name": "Kitchen",
+          "room_type": "Kitchen",
+          "x": 0,
+          "y": 5.08,
+          "width": 5.19,
+          "height": 4.99
+        },
+        {
+          "name": "Toilet",
+          "room_type": "Toilet",
+          "x": 5.1,
+          "y": 5.1,
+          "width": 5.09,
+          "height": 4.97
         }
       ]
-    "svg":<.....>
     }
+    "svg": "<.........">
   ]
 }
 ```
@@ -59,8 +73,15 @@ The backend validates the geometry and converts the structured representation in
 
 ---
 
+# Architecture
+High Level Architecture for Production
+![High Level for Prod](./assets/HighLevelArch.png)
 
-# How It Works
+Implemented Architecture
+![Implemented](./assets/ImplementedArc.png)
+
+
+# How It Works!?
 
 AlyraAI follows a multi-stage generation pipeline.
 
@@ -69,7 +90,7 @@ AlyraAI follows a multi-stage generation pipeline.
 The user describes the house they want using natural language.
 
 ```text
-"I need a modern house with bedrooms, a kitchen, living room and bathrooms."
+"I need a modern house with bedrooms, a kitchen, living room and bathrooms." or "Could you help me design a house with ...?
 ```
 
 ### 2. Model Generation
@@ -81,7 +102,7 @@ The model generates a structured `HousePlan` rather than an image.
 ```text
 Natural Language
        ↓
-Qwen2.5-3B-Instruct
+AlyraAI-Qwen2.5-3B-Instruct(Fine-Tuned)
        ↓
 HousePlan JSON
 ```
@@ -161,7 +182,7 @@ The dataset contains natural-language requests paired with structured `HousePlan
 After generation, filtering and splitting:
 
 ```text
-Total samples: 19,332
+Total samples: 19,332 (Actually 20k+ but I couldnt find the proper out of the split(Google Colab prob))
 
 Training:       17,398
 Validation:        966
@@ -291,11 +312,8 @@ A custom geometry validator checks every generated plan before it is returned.
 Ensures every room remains inside the floor boundary.
 
 ```text
-x >= 0
-y >= 0
-
-x + width <= floor_width
-y + height <= floor_height
+x >= 0 & y >= 0
+x + width <= floor_width & y + height <= floor_height
 ```
 
 ### Dimension Validation
@@ -303,8 +321,7 @@ y + height <= floor_height
 Rooms must have positive dimensions.
 
 ```text
-width > 0
-height > 0
+width > 0 & height > 0
 ```
 
 ### Floor Validation
@@ -312,18 +329,15 @@ height > 0
 The system verifies:
 
 ```text
-Number of generated floors
-=
-Requested number of floors
+Number of generated floors = Requested number of floors
 ```
-
 and ensures floor numbers are valid.
 
+(There are many edge cases but our model can handle these as of now)
 
 # Technology Stack
 
 ## AI / Machine Learning
-
 * Python
 * PyTorch
 * Hugging Face Transformers
@@ -340,7 +354,7 @@ and ensures floor numbers are valid.
 * SQLAlchemy
 * PostgreSQL
 
-## Distributed Processing
+## Distributed Processing (Synthetic Dataset Generation)
 
 * Redis
 * BullMQ
