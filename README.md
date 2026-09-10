@@ -80,6 +80,15 @@ High Level Architecture for Production
 Implemented Architecture
 ![Implemented](./assets/ImplementedArc.png)
 
+# Output
+![ip1](./assets/ip1.png)
+![op1](./assets/op1.png)
+![ip2](./assets/ip2.png)
+![op2](./assets/op2.png)
+![ip3](./assets/ip3.png)
+![op3](./assets/op3.png)
+![ip4](./assets/ip4.png)
+![op4](./assets/op4.png)
 
 # How It Works!?
 
